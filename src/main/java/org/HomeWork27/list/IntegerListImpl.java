@@ -1,4 +1,4 @@
-package org.HomeWork27;
+package org.HomeWork27.list;
 
 import org.HomeWork27.exception.ElementNoFoundException;
 import org.HomeWork27.exception.InvalidIndexException;
@@ -58,18 +58,22 @@ public class IntegerListImpl implements IntegerList{
         if (index == -1) {
             throw new ElementNoFoundException();
         }
-       return remove(index);
+        return remove(index, item);
     }
 
     @Override
-    public Integer remove(int index) {
+    public Integer remove(int index, Integer item) {
         validateIndex(index);
-        Integer item = elements[index];
-        if (index != size) {
-            System.arraycopy(elements, index + 1, elements, index, size - index);
+        if (!elements[index].equals(item)) {
+            throw new ElementNoFoundException();
         }
+        Integer removedItem = elements[index];
+        if (index != size - 1) {
+            System.arraycopy(elements, index + 1, elements, index, size - index - 1);
+        }
+        elements[size - 1] = null;
         size--;
-        return item;
+        return removedItem;
     }
 
     @Override

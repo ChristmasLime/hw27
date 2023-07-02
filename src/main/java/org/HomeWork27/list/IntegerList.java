@@ -1,4 +1,4 @@
-package org.HomeWork27;
+package org.HomeWork27.list;
 
 public interface IntegerList {
 
@@ -14,7 +14,7 @@ public interface IntegerList {
     Integer remove(Integer item);
 
 
-    Integer remove(int index);
+    Integer remove(int index,Integer item);
 
     boolean contains(Integer item);
 

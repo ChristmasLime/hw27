@@ -1,6 +1,5 @@
 package org.HomeWork27.list;
 
-import org.HomeWork27.IntegerListImpl;
 import org.HomeWork27.exception.ElementNoFoundException;
 import org.HomeWork27.exception.InvalidIndexException;
 import org.HomeWork27.exception.ItemCannotBeNullException;
@@ -41,7 +40,7 @@ public class IntegerListImplTest {
     @Test
     void removeTest() {
         list.add(5);
-        list.remove((Integer) 5);
+        list.remove(5);
         assertTrue(list.isEmpty());
     }
 
@@ -49,7 +48,7 @@ public class IntegerListImplTest {
     void removeForIndexTest() {
         list.add(100);
         list.add(200);
-        list.remove(0);
+        list.remove(0,100);
         assertEquals(200, list.get(0));
         assertEquals(1, list.size());
     }
