@@ -58,22 +58,18 @@ public class IntegerListImpl implements IntegerList{
         if (index == -1) {
             throw new ElementNoFoundException();
         }
-        return remove(index, item);
+        return removeByIndex(index);
     }
 
     @Override
-    public Integer remove(int index, Integer item) {
+    public Integer removeByIndex(Integer index) {
         validateIndex(index);
-        if (!elements[index].equals(item)) {
-            throw new ElementNoFoundException();
+        Integer item = elements[index];
+        if (index != size) {
+            System.arraycopy(elements, index + 1, elements, index, size - index);
         }
-        Integer removedItem = elements[index];
-        if (index != size - 1) {
-            System.arraycopy(elements, index + 1, elements, index, size - index - 1);
-        }
-        elements[size - 1] = null;
         size--;
-        return removedItem;
+        return item;
     }
 
     @Override

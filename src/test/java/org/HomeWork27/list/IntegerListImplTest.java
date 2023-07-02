@@ -48,7 +48,7 @@ public class IntegerListImplTest {
     void removeForIndexTest() {
         list.add(100);
         list.add(200);
-        list.remove(0,100);
+        list.removeByIndex(0);
         assertEquals(200, list.get(0));
         assertEquals(1, list.size());
     }
@@ -117,7 +117,7 @@ public class IntegerListImplTest {
     @Test
     void remove_ElementNoFoundExceptionTest() {
         assertThrows(ElementNoFoundException.class, () ->
-                list.remove((Integer) 5));
+                list.remove( 5));
     }
 
 }

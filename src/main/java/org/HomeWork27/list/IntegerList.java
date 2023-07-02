@@ -14,7 +14,7 @@ public interface IntegerList {
     Integer remove(Integer item);
 
 
-    Integer remove(int index,Integer item);
+    Integer removeByIndex(Integer index);
 
     boolean contains(Integer item);
 
